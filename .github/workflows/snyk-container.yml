@@ -48,9 +48,6 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         image: your/image-to-test
-
-    - name: List files in the current directory for debugging
-      run: ls -la
     - name: Replace security-severity undefined for license-related findings 
       run: sed -i 's/"security-severity":"undefined"/"security-severity":"0"/g' snyk.sarif
     - name: Upload result to GitHub Code Scanning
