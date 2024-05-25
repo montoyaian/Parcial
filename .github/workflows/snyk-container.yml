@@ -42,7 +42,7 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         image: your/image-to-test
-        args: --file-path=snyk.sarif # Asegurarse de generar el archivo SARIF
+        args: --file=Dockerfile # Asegurarse de generar el archivo SARIF
     - name: Replace security-severity undefined for license-related findings
       run: |
        sed -i 's/"security-severity":"undefined"/"security-severity":"0"/g' snyk.sarif
