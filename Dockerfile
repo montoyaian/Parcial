@@ -1,8 +1,6 @@
 # Use an official Node.js runtime as a parent image
 FROM node:22.1-bookworm-slim
 
-# Update zlib1g package
-RUN apt-get update && apt-get install -y zlib1g
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
