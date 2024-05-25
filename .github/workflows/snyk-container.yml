@@ -1,4 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
+igual# This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
@@ -45,6 +45,8 @@ jobs:
         args: --file-path=snyk.sarif # Asegurarse de generar el archivo SARIF
     - name: Replace security-severity undefined for license-related findings
       run: sed -i 's/"security-severity":"undefined"/"security-severity":"0"/g' snyk.sarif
+    - name: Replace security-severity undefined for license-related findings
+      run: sed -i 's/"security-severity":"null"/"security-severity":"0"/g' snyk.sarif
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
